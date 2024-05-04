@@ -34,7 +34,7 @@
     $labels->not_found_in_trash = 'ゴミ箱に'.$name.'は見つかりませんでした';
   }
   add_action('init', 'change_object_label');
-/*
+
   function add_files(){
     wp_enqueue_style('reset', get_theme_file_uri('/css/reset.css'));
     wp_enqueue_style('main', get_stylesheet_uri());
@@ -42,4 +42,4 @@
     wp_enqueue_script('main', get_theme_file_uri('/js/script.js'), arry(), '', true);
   }
   add_action('wp_enqueue_scripts', 'add_files');
-  */
+  
