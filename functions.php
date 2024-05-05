@@ -1,4 +1,8 @@
 <?php 
+  remove_action('wp_head', 'wp_generator');
+  remove_action('wp_head', 'rsd_link');
+  remove_action('wp_head', 'wlwmanifest_link');
+
   function theme_setup(){
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -7,7 +11,24 @@
     ));
   }
   add_action('after_setup_theme', 'theme_setup');
-  
+
+  function my_widgets_init(){
+    register_sidebar( array(
+      'name' => 'News Widgets',
+      'id' => 'news-widgets',
+      'before_widget' => '<div id="%1$s" class="widget">',
+      'after_widget' => '</div>',
+    ));
+
+    register_sidebar( array(
+      'name' => 'Footer Widgets',
+      'id' => 'footer-widgets',
+      'before_widget' => '<div id="%1$s" class="widget">',
+      'after_widget' => '</div>',
+    ));
+  }
+  add_sction('widgets_init', 'my_widgets_init');
+
   function change_menu_label(){
     global $menu;
     global $submenu;
